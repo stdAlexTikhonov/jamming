@@ -9,16 +9,19 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [{
+        id: 0,
         name: 'Name1',
         artist: 'Artist1',
         album: 'Album1',
         track: 'Track1'
       }, {
+        id: 1,
         name: 'Name2',
         artist: 'Artist2',
         album: 'Album2',
         track: 'Track2'
       }, {
+        id: 2,
         name: 'Name3',
         artist: 'Artist3',
         album: 'Album3',
@@ -27,15 +30,28 @@ class App extends Component {
       playlistName: 'My playlist',
       playlistTracks: [
         {
+        id: 0,
         name: 'Name1',
         artist: 'Artist1',
         album: 'Album1'
       }, {
+        id: 2,
         name: 'Name3',
         artist: 'Artist3',
         album: 'Album3'
       }
       ]
+    };
+
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track) {
+    if(!this.state.playlistTracks.some(item => item.id === track.id)) {
+      var newarray = this.state.playlistTracks.push(track);
+      this.setState({
+        playlistTracks: newarray
+      });
     }
   }
   
