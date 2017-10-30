@@ -47,7 +47,7 @@ class App extends Component {
   }
 
   addTrack(track) {
-    if(!this.state.playlistTracks.some(item => item.id === track.id)) {
+    if(this.state.playlistTracks.every(item => item.id !== track.id)) {
       var newarray = this.state.playlistTracks.push(track);
       this.setState({
         playlistTracks: newarray
@@ -62,7 +62,7 @@ class App extends Component {
         <div className="App">
           { /* <SearchBar />  */}
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults} />
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
             <Playlist name={this.state.playlistName} tracks={this.state.playlistTracks} />
           </div>
         </div>
