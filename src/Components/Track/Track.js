@@ -4,7 +4,7 @@ import './Track.css';
 class Track extends Component {
   
   renderAction() {
-    
+  
   }
   
   render() {

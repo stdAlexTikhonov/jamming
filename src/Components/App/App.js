@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SearchResults from '../SearchResults/SearchResults';
+import Playlist from '../Playlist/Playlist';
 
 class App extends Component {
   
@@ -22,7 +23,19 @@ class App extends Component {
         artist: 'Artist3',
         album: 'Album3',
         track: 'Track3'
-      }]
+      }],
+      playlistName: 'My playlist',
+      playlistTracks: [
+        {
+        name: 'Name1',
+        artist: 'Artist1',
+        album: 'Album1'
+      }, {
+        name: 'Name3',
+        artist: 'Artist3',
+        album: 'Album3'
+      }
+      ]
     }
   }
   
@@ -34,7 +47,7 @@ class App extends Component {
           { /* <SearchBar />  */}
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} />
-            { /* <Playlist/> */ }
+            <Playlist name={this.state.playlistName} tracks={this.state.playlistTracks} />
           </div>
         </div>
       </div>
