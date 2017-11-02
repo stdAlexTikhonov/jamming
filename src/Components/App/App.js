@@ -28,19 +28,7 @@ class App extends Component {
         track: 'Track3'
       }],
       playlistName: 'My playlist',
-      playlistTracks: [
-        {
-        id: 0,
-        name: 'Name1',
-        artist: 'Artist1',
-        album: 'Album1'
-      }, {
-        id: 2,
-        name: 'Name3',
-        artist: 'Artist3',
-        album: 'Album3'
-      }
-      ]
+      playlistTracks: []
     };
 
     this.addTrack = this.addTrack.bind(this);
@@ -70,7 +58,7 @@ class App extends Component {
         <div className="App">
           { /* <SearchBar />  */}
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults}/>
+            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
             <Playlist name={this.state.playlistName} tracks={this.state.playlistTracks} />
           </div>
         </div>
