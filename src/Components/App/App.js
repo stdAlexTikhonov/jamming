@@ -10,26 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [{
-        id: 0,
-        name: 'Name1',
-        artist: 'Artist1',
-        album: 'Album1',
-        track: 'Track1'
-      }, {
-        id: 1,
-        name: 'Name2',
-        artist: 'Artist2',
-        album: 'Album2',
-        track: 'Track2'
-      }, {
-        id: 2,
-        name: 'Name3',
-        artist: 'Artist3',
-        album: 'Album3',
-        track: 'Track3'
-      }],
-      playlistName: 'My playlist',
+      searchResults: [],
+      playlistName: 'New playlist',
       playlistTracks: []
     };
 
@@ -67,6 +49,10 @@ class App extends Component {
     let trackURIs = this.state.playlistTracks.map(track => track.uri);
     let name = this.state.playlistName;
     Spotify.savePlaylist(name, trackURIs);
+    this.setState({
+      searchResults: [],
+      playlistName: 'New playlist'
+    });
   }
   
   search(term) {
