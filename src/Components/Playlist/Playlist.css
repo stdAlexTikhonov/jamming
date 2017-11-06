@@ -37,6 +37,10 @@
   background-color: rgba(108, 65, 233, .7);
 }
 
+.Playlist-save:active {
+  background: pink;
+}
+
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
